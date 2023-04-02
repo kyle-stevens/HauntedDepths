@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpxdsrao4taqk"]
+
+[ext_resource type="Script" path="res://Enemies/pathenemy.gd" id="1_f5iv0"]
+[ext_resource type="Texture2D" uid="uid://bxe158jnkov8p" path="res://icon.svg" id="2_61vj4"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tqd48"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_20r8k"]
+radius = 0.253209
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4sqj0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_61vj4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PathEnemy" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 0
+gravity_scale = 0.0
+contact_monitor = true
+script = ExtResource("1_f5iv0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_tqd48")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+visible = false
+radius = 0.25
+height = 0.75
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_20r8k")
+
+[node name="Sprite3D" type="AnimatedSprite3D" parent="."]
+shaded = true
+sprite_frames = SubResource("SpriteFrames_4sqj0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

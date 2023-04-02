@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://sivj0rebt6ll"]
+
+[ext_resource type="PackedScene" uid="uid://p2sxsmw1i6on" path="res://Player/adventurer.tscn" id="1_b5lit"]
+[ext_resource type="PackedScene" uid="uid://867i377lee0s" path="res://Enemies/turretenemy.tscn" id="2_ho4bb"]
+[ext_resource type="PackedScene" uid="uid://cmr2bbcfwee4c" path="res://Enemies/roamingenemy.tscn" id="3_2ueow"]
+[ext_resource type="PackedScene" uid="uid://cpxdsrao4taqk" path="res://Enemies/pathenemy.tscn" id="4_t10kh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i8ohc"]
+size = Vector3(50, 1, 50)
+
+[node name="demomap" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(50, 1, 50)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_i8ohc")
+
+[node name="Adventurer" parent="." instance=ExtResource("1_b5lit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="TurretEnemy" parent="." node_paths=PackedStringArray("target_body") instance=ExtResource("2_ho4bb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.538, 1, 18.093)
+target_body = NodePath("../Adventurer")
+
+[node name="RomaingEnemy" parent="." node_paths=PackedStringArray("target_body") instance=ExtResource("3_2ueow")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.725, 1, 15.718)
+target_body = NodePath("../Adventurer")
+
+[node name="PathEnemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_t10kh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 1, 5)
+target = Vector3(16, 1, 5)
+start = Vector3(26, 1, 6)
+player = NodePath("../Adventurer")

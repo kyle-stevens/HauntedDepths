@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmr2bbcfwee4c"]
+
+[ext_resource type="Script" path="res://Enemies/roamingenemy.gd" id="1_6e3kp"]
+[ext_resource type="Texture2D" uid="uid://bxe158jnkov8p" path="res://icon.svg" id="2_de6h8"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ina0q"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_o85s4"]
+radius = 0.25
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2gblp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_de6h8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="RomaingEnemy" type="RigidBody3D"]
+gravity_scale = 0.0
+contact_monitor = true
+script = ExtResource("1_6e3kp")
+
+[node name="CharacterCollision" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_ina0q")
+
+[node name="NorthInteraction" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NorthInteraction"]
+shape = SubResource("SphereShape3D_o85s4")
+
+[node name="EastInteraction" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EastInteraction"]
+shape = SubResource("SphereShape3D_o85s4")
+
+[node name="SouthInteraction" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SouthInteraction"]
+shape = SubResource("SphereShape3D_o85s4")
+
+[node name="WestInteraction" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+collision_mask = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WestInteraction"]
+shape = SubResource("SphereShape3D_o85s4")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+visible = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Sprite3D" type="AnimatedSprite3D" parent="."]
+shaded = true
+sprite_frames = SubResource("SpriteFrames_2gblp")
+
+[connection signal="body_entered" from="NorthInteraction" to="." method="_on_north_interaction_body_entered"]
+[connection signal="body_exited" from="NorthInteraction" to="." method="_on_north_interaction_body_exited"]
+[connection signal="body_entered" from="EastInteraction" to="." method="_on_east_interaction_body_entered"]
+[connection signal="body_exited" from="EastInteraction" to="." method="_on_east_interaction_body_exited"]
+[connection signal="body_entered" from="SouthInteraction" to="." method="_on_south_interaction_body_entered"]
+[connection signal="body_exited" from="SouthInteraction" to="." method="_on_south_interaction_body_exited"]
+[connection signal="body_entered" from="WestInteraction" to="." method="_on_west_interaction_body_entered"]
+[connection signal="body_exited" from="WestInteraction" to="." method="_on_west_interaction_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
