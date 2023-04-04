@@ -26,10 +26,10 @@ func attacked(direction):
 func _on_timer_timeout():
 	#fire projectile
 	if (self.target_body.position).distance_to(self.position) < self.range:
-		pass
-#		var spawnPoint : Node3D = get_node("EnemyTurret")
-#		shot.position = self.position
-#		shot.speed_multiplier = .25
-#		shot.shooter = self
-#		shot.rotation = self.rotation
-#		get_tree().root.add_child(shot)
+		var shot = preload("res://Attacks/shot.tscn").instantiate()
+		var spawnPoint : Node3D = get_node("EnemyTurret")
+		shot.position = self.position
+		shot.speed_multiplier = .25
+		shot.shooter = self
+		shot.rotation = self.rotation
+		get_tree().root.add_child(shot)

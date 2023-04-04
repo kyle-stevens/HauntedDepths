@@ -40,4 +40,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 shape = SubResource("SphereShape3D_2u58x")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-light_energy = 50.0
+light_energy = 10.0

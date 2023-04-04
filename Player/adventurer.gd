@@ -10,6 +10,7 @@ var objs_in_front : Node3D = self.null_node
 var objs_behind : Node3D = self.null_node
 var objs_left : Node3D = self.null_node
 var objs_right : Node3D = self.null_node
+var ammunition : int = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -88,15 +89,14 @@ func _process(delta):
 		#play attack anim
 		if self.objs_in_front.has_method("attacked"):
 			self.objs_in_front.attacked("right")
-	if Input.is_action_just_pressed("fire") and self.ammunition > 0: #still a little weird
+	if Input.is_action_just_pressed("ui_accept") and self.ammunition > 0: #still a little weird
 		#fire projectile
-		pass
-#		var shot = preload("res://shot.tscn").instantiate()
-#		shot.position = self.position
-#		shot.rotation = self.rotation
-#		shot.shooter = self
-#		get_tree().root.add_child(shot)
-#		self.ammunition -= 1
+		var shot = preload("res://Attacks/shot.tscn").instantiate()
+		shot.position = self.position
+		shot.rotation = self.rotation
+		shot.shooter = self
+		get_tree().root.add_child(shot)
+		self.ammunition -= 1
 
 func attacked(direction):
 	pass
