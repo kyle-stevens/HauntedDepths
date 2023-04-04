@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://bpb3nqer5kpqa"]
+
+[ext_resource type="Texture2D" uid="uid://csrnt363djoes" path="res://Assets/Structural/Exports/BrickLava.png" id="1_yof30"]
+[ext_resource type="Texture2D" uid="uid://b10j7vfqi7ctf" path="res://Assets/Structural/Exports/BrickLavaEmission.png" id="2_uor3s"]
+[ext_resource type="Texture2D" uid="uid://ojhvu7rcl6r" path="res://Assets/Structural/Exports/BrickBase_n.png" id="3_i8gcp"]
+
+[resource]
+albedo_texture = ExtResource("1_yof30")
+emission_enabled = true
+emission_texture = ExtResource("2_uor3s")
+normal_enabled = true
+normal_texture = ExtResource("3_i8gcp")

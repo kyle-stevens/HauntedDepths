@@ -40,4 +40,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 shape = SubResource("SphereShape3D_2u58x")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-light_energy = 10.0
+light_energy = 0.0
+
+[connection signal="body_entered" from="PlayerFrontInteraction" to="." method="_on_player_front_interaction_body_entered"]
+[connection signal="body_exited" from="PlayerFrontInteraction" to="." method="_on_player_front_interaction_body_exited"]
+[connection signal="body_entered" from="PlayerBackInteraction" to="." method="_on_player_back_interaction_body_entered"]
+[connection signal="body_exited" from="PlayerBackInteraction" to="." method="_on_player_back_interaction_body_exited"]
+[connection signal="body_entered" from="PlayerLeftInteraction" to="." method="_on_player_left_interaction_body_entered"]
+[connection signal="body_exited" from="PlayerLeftInteraction" to="." method="_on_player_left_interaction_body_exited"]
+[connection signal="body_entered" from="PlayerRightInteraction" to="." method="_on_player_right_interaction_body_entered"]
+[connection signal="body_exited" from="PlayerRightInteraction" to="." method="_on_player_right_interaction_body_exited"]

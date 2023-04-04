@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://df6v36opt73wi"]
+
+[ext_resource type="Texture2D" uid="uid://c5reyfnph5rc1" path="res://Assets/Structural/Exports/BrickMossy.png" id="1_yx3lt"]
+[ext_resource type="Texture2D" uid="uid://ojhvu7rcl6r" path="res://Assets/Structural/Exports/BrickBase_n.png" id="2_3vjg2"]
+
+[resource]
+albedo_texture = ExtResource("1_yx3lt")
+normal_enabled = true
+normal_texture = ExtResource("2_3vjg2")

@@ -2,6 +2,8 @@ extends Area3D
 
 var speed_multiplier : float = 1
 var shooter : Node3D
+var shooter_position : Vector3
+var is_projectile : bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -12,14 +14,15 @@ func _process(delta):
 	self.position += self.basis.z * (-0.1 * speed_multiplier)
 	print(self.position)
 	print(self.basis.z * (-0.1 * speed_multiplier))
-	$CollisionShape3D/AnimatedSprite3D.look_at(shooter.position)
+	$CollisionShape3D/AnimatedSprite3D.look_at(shooter_position) # bullets will hit each other and crash, fix this.
 	$CollisionShape3D/AnimatedSprite3D.play("default")
 	
 
 func _on_body_entered(body):
 	if body != self.shooter:
 		queue_free()
-		body.attacked('shot')
+		if body.has_method('attacked'):
+			body.attacked('shot')
 #		var explosion = preload("res://explosion.tscn").instantiate()
 #		explosion.emitting = true
 #		explosion.position = self.position

@@ -10,7 +10,10 @@ var objs_in_front : Node3D = self.null_node
 var objs_behind : Node3D = self.null_node
 var objs_left : Node3D = self.null_node
 var objs_right : Node3D = self.null_node
-var ammunition : int = 5
+
+var health : int = 100
+var potions : int = 5
+var mana : int = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,6 +21,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	print(self.objs_in_front, self.objs_behind, self.objs_left, self.objs_right)
 	#Still possible to glitch player between walls
 	if Input.is_action_just_pressed("turn_left"):
 		direction_facing += 1 # left turn
@@ -89,22 +93,18 @@ func _process(delta):
 		#play attack anim
 		if self.objs_in_front.has_method("attacked"):
 			self.objs_in_front.attacked("right")
-	if Input.is_action_just_pressed("ui_accept") and self.ammunition > 0: #still a little weird
+	if Input.is_action_just_pressed("ui_accept") and self.mana > 0: #still a little weird
 		#fire projectile
 		var shot = preload("res://Attacks/shot.tscn").instantiate()
 		shot.position = self.position
 		shot.rotation = self.rotation
 		shot.shooter = self
+		shot.shooter_position = self.position
 		get_tree().root.add_child(shot)
-		self.ammunition -= 1
+		self.mana -= 10
 
 func attacked(direction):
-	pass
-#	if direction == "trap_death":
-#		self.health = 0
-#	else:
-#		self.health -= 1
-#	print(direction)
+	self.health -= 1
 
 func _on_player_front_interaction_body_entered(body):
 	self.objs_in_front = body

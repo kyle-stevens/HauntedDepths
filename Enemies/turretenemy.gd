@@ -31,5 +31,6 @@ func _on_timer_timeout():
 		shot.position = self.position
 		shot.speed_multiplier = .25
 		shot.shooter = self
+		shot.shooter_position = self.position
 		shot.rotation = self.rotation
 		get_tree().root.add_child(shot)

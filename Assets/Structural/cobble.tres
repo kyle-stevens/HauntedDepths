@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://5nh2g38ki8bc"]
+
+[ext_resource type="Texture2D" uid="uid://cmn751g36ajcj" path="res://Assets/Structural/Exports/CobblstoneBase.png" id="1_yftvw"]
+[ext_resource type="Texture2D" uid="uid://clevbh72e0jl7" path="res://Assets/Structural/Exports/CobblstoneBase_n.png" id="2_h8hvi"]
+
+[resource]
+albedo_texture = ExtResource("1_yftvw")
+normal_enabled = true
+normal_texture = ExtResource("2_h8hvi")

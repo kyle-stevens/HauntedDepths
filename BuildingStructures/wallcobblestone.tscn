@@ -1,4 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdn8n2pmqn0eb"]
+[gd_scene load_steps=9 format=3 uid="uid://doeh7wj1olrkg"]
+
+[ext_resource type="Material" uid="uid://5nh2g38ki8bc" path="res://Assets/Structural/cobble.tres" id="1_anjtb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5rkhl"]
 
@@ -28,23 +30,29 @@ shape = SubResource("BoxShape3D_5rkhl")
 [node name="Y" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("PlaneMesh_sq7li")
+material = ExtResource("1_anjtb")
 
 [node name="neg_Y" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, -0.5, 0)
 mesh = SubResource("PlaneMesh_r6s8b")
+material = ExtResource("1_anjtb")
 
 [node name="neg_Z" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 0, -0.5)
 mesh = SubResource("PlaneMesh_stw2s")
+material = ExtResource("1_anjtb")
 
 [node name="Z" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.5)
 mesh = SubResource("PlaneMesh_k5um2")
+material = ExtResource("1_anjtb")
 
 [node name="X" type="CSGMesh3D" parent="."]
 transform = Transform3D(1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 0, 0, 1, 0.5, 0, 0)
 mesh = SubResource("PlaneMesh_1jdk4")
+material = ExtResource("1_anjtb")
 
 [node name="neg_X" type="CSGMesh3D" parent="."]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.5, 0, 0)
 mesh = SubResource("PlaneMesh_r41w4")
+material = ExtResource("1_anjtb")
