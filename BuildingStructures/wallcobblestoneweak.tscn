@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1631bxhojs0"]
+[gd_scene load_steps=10 format=3 uid="uid://c1631bxhojs0"]
 
+[ext_resource type="Script" path="res://BuildingStructures/wallcobblestoneweak.gd" id="1_1g8fg"]
 [ext_resource type="Material" uid="uid://lsguuwohy6q1" path="res://Assets/Structural/weak_cobble.tres" id="1_m2y2m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5rkhl"]
@@ -22,7 +23,8 @@ size = Vector2(1, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_r41w4"]
 size = Vector2(1, 1)
 
-[node name="Wall" type="StaticBody3D"]
+[node name="WallCobblestoneWeak" type="StaticBody3D"]
+script = ExtResource("1_1g8fg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_5rkhl")

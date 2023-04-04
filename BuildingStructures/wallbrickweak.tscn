@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdlwd8lpohke6"]
+[gd_scene load_steps=10 format=3 uid="uid://cdlwd8lpohke6"]
 
 [ext_resource type="Material" uid="uid://bsetsl3fwapsw" path="res://Assets/Structural/weak_brick.tres" id="1_sbhhq"]
+[ext_resource type="Script" path="res://BuildingStructures/wallbrickweak.gd" id="1_xgaqp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5rkhl"]
 
@@ -22,7 +23,8 @@ size = Vector2(1, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_r41w4"]
 size = Vector2(1, 1)
 
-[node name="Wall" type="StaticBody3D"]
+[node name="WallBrickWeak" type="StaticBody3D"]
+script = ExtResource("1_xgaqp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_5rkhl")

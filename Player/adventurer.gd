@@ -69,6 +69,7 @@ func _process(delta):
 			self.position += Vector3(0,0,1)
 	
 	self.rotation.y = lerp_angle(self.rotation.y, rotations[direction_facing % 4], delta * 10)
+	$UI/CompassFace.rotation = rotations[direction_facing % 4] # not working quite right.
 	#-zero not equal to zero bug
 	var normalized_rotation_y = 2*PI + self.rotation.y if self.rotation.y < 0 else self.rotation.y
 		

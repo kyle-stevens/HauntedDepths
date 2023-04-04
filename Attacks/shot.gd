@@ -23,11 +23,11 @@ func _on_body_entered(body):
 		queue_free()
 		if body.has_method('attacked'):
 			body.attacked('shot')
-#		var explosion = preload("res://explosion.tscn").instantiate()
-#		explosion.emitting = true
-#		explosion.position = self.position
-#		explosion.rotation = self.basis.z
-#		get_tree().root.add_child(explosion)
+		var explosion = preload("res://Attacks/explosion.tscn").instantiate()
+		explosion.emitting = true
+		explosion.position = self.position
+		explosion.rotation = self.basis.z
+		get_tree().root.add_child(explosion)
 #		if body.type == Globals.EntityType.ENEMY:
 #	#		print("Hit Enemy")
 #			body.attacked("shot")

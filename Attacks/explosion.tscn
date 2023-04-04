@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://drhnngnqgrygk"]
+
+[ext_resource type="Script" path="res://Attacks/explosion.gd" id="1_782d8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wp764"]
+albedo_color = Color(1, 0.462745, 0.164706, 1)
+emission_enabled = true
+emission = Color(1, 0.721569, 0, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_shn5x"]
+material = SubResource("StandardMaterial3D_wp764")
+size = Vector3(0.025, 0.025, 0.025)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kh3d1"]
+radius = 0.25
+
+[node name="Explosion" type="CPUParticles3D"]
+emitting = false
+amount = 300
+lifetime = 1.25
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 1.0
+mesh = SubResource("BoxMesh_shn5x")
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+damping_min = 1.0
+damping_max = 2.0
+scale_amount_min = 0.5
+script = ExtResource("1_782d8")
+
+[node name="Damage" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Damage"]
+shape = SubResource("SphereShape3D_kh3d1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(1, 0.501961, 0, 1)
+light_energy = 0.125
+omni_range = 0.75
+omni_attenuation = 0.25
+
+[connection signal="body_entered" from="Damage" to="." method="_on_damage_body_entered"]
