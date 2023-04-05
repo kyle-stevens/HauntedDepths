@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://bohjdqt5xr341"]
+
+[ext_resource type="Texture2D" uid="uid://qk4lbra671r6" path="res://Assets/Enemies/Exports/Beholder.png" id="1_fmfw8"]
+[ext_resource type="Texture2D" uid="uid://xf3dc5pldo5" path="res://Assets/Enemies/Exports/Beholder_n.png" id="2_0rj6a"]
+
+[resource]
+diffuse_texture = ExtResource("1_fmfw8")
+normal_texture = ExtResource("2_0rj6a")

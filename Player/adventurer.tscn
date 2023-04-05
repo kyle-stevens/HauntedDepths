@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://p2sxsmw1i6on"]
+[gd_scene load_steps=7 format=3 uid="uid://p2sxsmw1i6on"]
 
 [ext_resource type="Script" path="res://Player/adventurer.gd" id="1_mimyd"]
 [ext_resource type="Texture2D" uid="uid://dlxfrs8aeaywv" path="res://Assets/UI/Exports/CompassFace.png" id="2_uswkl"]
 [ext_resource type="Texture2D" uid="uid://dhqrufjaiylrl" path="res://Assets/UI/Exports/CompassShell.png" id="3_nubrh"]
+[ext_resource type="AudioStream" uid="uid://b62hcu3jl2tqb" path="res://Assets/Sounds/459964__florianreichelt__footsteps-on-concrete.mp3" id="4_yssls"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2uyeb"]
 
@@ -59,6 +60,9 @@ texture = ExtResource("2_uswkl")
 position = Vector2(100, 100)
 scale = Vector2(3, 3)
 texture = ExtResource("3_nubrh")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_yssls")
 
 [connection signal="body_entered" from="PlayerFrontInteraction" to="." method="_on_player_front_interaction_body_entered"]
 [connection signal="body_exited" from="PlayerFrontInteraction" to="." method="_on_player_front_interaction_body_exited"]

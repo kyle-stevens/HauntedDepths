@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dyr7wfso02625"]
+
+[ext_resource type="Texture2D" uid="uid://b3tjvxvmjjhd4" path="res://Assets/Structural/Exports/CobblestoneInsignia.png" id="1_s5oob"]
+[ext_resource type="Texture2D" uid="uid://crypnrsp7w70e" path="res://Assets/Structural/Exports/CobblestoneInsignia_n.png" id="2_vreu3"]
+
+[resource]
+albedo_texture = ExtResource("1_s5oob")
+normal_enabled = true
+normal_texture = ExtResource("2_vreu3")

@@ -22,7 +22,7 @@ size = Vector2(1, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_r41w4"]
 size = Vector2(1, 1)
 
-[node name="Wall" type="StaticBody3D"]
+[node name="WallCobblstone" type="StaticBody3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_5rkhl")

@@ -37,7 +37,6 @@ func enemyMovement():
 	if self.north == self.target_body or self.south == self.target_body or self.east == self.target_body or self.west == self.target_body:
 		if self.target_body.has_method("attacked"):
 			self.target_body.attacked("head")
-			sprite.play("attack")
 	else:
 		if self.north == null_node:
 			distances[0] = Vector3(self.position.x, self.position.y, self.position.z - 1)
@@ -68,6 +67,7 @@ func enemyMovement():
 		
 func _process(delta):
 	sprite.look_at(target_body.position, Vector3.UP)
+	self.rotation.y = $Sprite3D.global_rotation.y
 	pass
 func attacked(direction):
 	sprite.play("death")
@@ -106,6 +106,7 @@ func _on_timer_timeout():
 		shot.shooter = self
 		shot.shooter_position = self.position
 		shot.rotation = self.rotation
+		shot.shot_type = 'fireball'
 		get_tree().root.add_child(shot)
 	else:
 		enemyMovement()

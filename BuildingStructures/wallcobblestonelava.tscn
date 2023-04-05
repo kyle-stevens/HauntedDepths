@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://uanv4pacem4b"]
+[gd_scene load_steps=10 format=3 uid="uid://uanv4pacem4b"]
 
 [ext_resource type="Material" uid="uid://bm0tyebrjfrr6" path="res://Assets/Structural/lava_cobble.tres" id="1_33c2m"]
+[ext_resource type="Script" path="res://BuildingStructures/walllava.gd" id="1_euu5m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5rkhl"]
 
@@ -22,7 +23,8 @@ size = Vector2(1, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_r41w4"]
 size = Vector2(1, 1)
 
-[node name="Wall" type="StaticBody3D"]
+[node name="WallCobblstoneLava" type="StaticBody3D"]
+script = ExtResource("1_euu5m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_5rkhl")

@@ -1,43 +1,32 @@
-[gd_scene load_steps=7 format=3 uid="uid://oiovk5y3j3yc"]
+[gd_scene load_steps=6 format=3 uid="uid://oiovk5y3j3yc"]
 
 [ext_resource type="Script" path="res://Attacks/shot.gd" id="1_gtunb"]
-[ext_resource type="Texture2D" uid="uid://bxe158jnkov8p" path="res://icon.svg" id="2_acou4"]
+[ext_resource type="Material" uid="uid://dnyya02cnw0g5" path="res://Assets/Attacks/bolt.tres" id="2_7jb1m"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0ncn8"]
 radius = 0.25
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_d3dy1"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_acou4")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qy7lp"]
-emission_enabled = true
-emission = Color(0.447059, 0.447059, 0.447059, 1)
-
 [sub_resource type="BoxMesh" id="BoxMesh_mfera"]
-material = SubResource("StandardMaterial3D_qy7lp")
+material = ExtResource("2_7jb1m")
 size = Vector3(0.025, 0.025, 0.025)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ptmxm"]
+material = ExtResource("2_7jb1m")
+radius = 0.025
+height = 0.05
 
 [node name="Shot" type="Area3D"]
 collision_mask = 15
 script = ExtResource("1_gtunb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("SphereShape3D_0ncn8")
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CollisionShape3D"]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
-sprite_frames = SubResource("SpriteFrames_d3dy1")
-frame_progress = 0.85607
+[node name="Bolt" type="Node3D" parent="."]
+visible = false
 
-[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+[node name="CPUParticles3D" type="CPUParticles3D" parent="Bolt"]
 amount = 25
 lifetime = 0.5
 mesh = SubResource("BoxMesh_mfera")
@@ -46,6 +35,90 @@ spread = 180.0
 gravity = Vector3(0, 0, 0)
 initial_velocity_min = 1.0
 initial_velocity_max = 1.0
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Bolt"]
+radius = 0.063
+material = ExtResource("2_7jb1m")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Bolt"]
+light_color = Color(1, 0.560784, 0.101961, 1)
+
+[node name="Multishot" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+visible = false
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="Multishot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.161637)
+amount = 25
+lifetime = 0.5
+mesh = SubResource("BoxMesh_mfera")
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Multishot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.161637)
+radius = 0.063
+material = ExtResource("2_7jb1m")
+
+[node name="CPUParticles3D2" type="CPUParticles3D" parent="Multishot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.131532, 0)
+amount = 25
+lifetime = 0.5
+mesh = SubResource("BoxMesh_mfera")
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="Multishot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.131532, 0)
+radius = 0.063
+material = ExtResource("2_7jb1m")
+
+[node name="CPUParticles3D3" type="CPUParticles3D" parent="Multishot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.167725)
+amount = 25
+lifetime = 0.5
+mesh = SubResource("BoxMesh_mfera")
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="Multishot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.167725)
+radius = 0.063
+material = ExtResource("2_7jb1m")
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Multishot"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+light_color = Color(1, 0.560784, 0.101961, 1)
+light_energy = 2.0
+
+[node name="Fireball" type="Node3D" parent="."]
+visible = false
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="Fireball"]
+amount = 25
+lifetime = 0.5
+mesh = SubResource("CapsuleMesh_ptmxm")
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 1.0
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Fireball"]
+radius = 0.189
+material = ExtResource("2_7jb1m")
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Fireball"]
+light_color = Color(1, 0.560784, 0.101961, 1)
+light_energy = 4.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

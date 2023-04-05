@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dket8daxl3pin"]
 
 [ext_resource type="Script" path="res://Enemies/roamingturretenemy.gd" id="1_d52o0"]
-[ext_resource type="Texture2D" uid="uid://bxe158jnkov8p" path="res://icon.svg" id="2_exkhx"]
+[ext_resource type="Texture2D" uid="uid://qk4lbra671r6" path="res://Assets/Enemies/Exports/Beholder.png" id="2_7x6c0"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ina0q"]
 
@@ -12,7 +12,7 @@ radius = 0.25
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_exkhx")
+"texture": ExtResource("2_7x6c0")
 }],
 "loop": true,
 "name": &"default",
@@ -63,6 +63,7 @@ wait_time = 2.0
 autostart = true
 
 [node name="Sprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, 0, 0, 0)
 shaded = true
 sprite_frames = SubResource("SpriteFrames_2gblp")
 

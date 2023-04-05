@@ -8,7 +8,7 @@ extends RigidBody3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Sprite3D2.scale = Vector3(self.range, self.range, self.range) #will be a circular sprite
+	$Range.scale = Vector3(self.range, self.range, self.range) #will be a circular sprite
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,5 +32,6 @@ func _on_timer_timeout():
 		shot.speed_multiplier = .25
 		shot.shooter = self
 		shot.shooter_position = self.position
+		shot.shot_type = 'fireball'
 		shot.rotation = self.rotation
 		get_tree().root.add_child(shot)

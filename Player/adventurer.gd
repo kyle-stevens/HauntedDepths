@@ -21,6 +21,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if self.is_rotating:
+		$AudioStreamPlayer3D.playing = true
+	else:
+		$AudioStreamPlayer3D.playing = false
 	print(self.objs_in_front, self.objs_behind, self.objs_left, self.objs_right)
 	#Still possible to glitch player between walls
 	if Input.is_action_just_pressed("turn_left"):
@@ -77,23 +81,6 @@ func _process(delta):
 		if self.objs_in_front.has_method("interact"):
 			self.objs_in_front.interact(self)
 		
-	#attacks
-	if Input.is_action_just_pressed("attack_up"):
-		#play attack anim, last frame lingers for 4 frames before clearing, played at 24 fps
-		if self.objs_in_front.has_method("attacked"):
-			self.objs_in_front.attacked("below")
-	if Input.is_action_just_pressed("attack_down"):
-		#play attack anim
-		if self.objs_in_front.has_method("attacked"):
-			self.objs_in_front.attacked("above")
-	if Input.is_action_just_pressed("attack_left"):
-		#play attack anim
-		if self.objs_in_front.has_method("attacked"):
-			self.objs_in_front.attacked("left")
-	if Input.is_action_just_pressed("attack_right"):
-		#play attack anim
-		if self.objs_in_front.has_method("attacked"):
-			self.objs_in_front.attacked("right")
 	if Input.is_action_just_pressed("ui_accept") and self.mana > 0: #still a little weird
 		#fire projectile
 		var shot = preload("res://Attacks/shot.tscn").instantiate()
@@ -101,8 +88,9 @@ func _process(delta):
 		shot.rotation = self.rotation
 		shot.shooter = self
 		shot.shooter_position = self.position
+		shot.shot_type = 'multishot'
 		get_tree().root.add_child(shot)
-		self.mana -= 10
+		self.mana -= 1 #need to balance
 
 func attacked(direction):
 	self.health -= 1
