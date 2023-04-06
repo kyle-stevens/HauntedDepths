@@ -5,6 +5,7 @@ extends RigidBody3D
 @export var target_body : PhysicsBody3D
 @onready var sprite : Sprite3D = get_node("Sprite3D")
 @export var range : int = 3
+@export var projectile_type : String = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,7 +16,7 @@ func _ready():
 func _process(delta):
 	sprite.look_at(self.target_body.position, Vector3.UP)
 	
-	$GrindingStone.play()
+#	$PassiveSound.play()
 	self.rotation.y = $Sprite3D.global_rotation.y
 
 func attacked(direction):

@@ -49,9 +49,10 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.
 stream = ExtResource("5_b7qbo")
 max_distance = 3.0
 
-[node name="GrindingStone" type="AudioStreamPlayer3D" parent="."]
+[node name="PassiveSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("6_1xs1x")
-volume_db = 3.0
+volume_db = 6.0
+unit_size = 50.0
 autoplay = true
 max_distance = 5.0
 

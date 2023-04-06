@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://sivj0rebt6ll"]
+[gd_scene load_steps=13 format=3 uid="uid://sivj0rebt6ll"]
 
 [ext_resource type="PackedScene" uid="uid://p2sxsmw1i6on" path="res://Player/adventurer.tscn" id="1_b5lit"]
 [ext_resource type="PackedScene" uid="uid://867i377lee0s" path="res://Enemies/turretenemy.tscn" id="6_g5r8n"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://cd8f1busnegs4" path="res://Assets/Sounds/657652__matrixxx__ghastly-strange-sounds.wav" id="9_2x7b0"]
 [ext_resource type="PackedScene" uid="uid://cdlwd8lpohke6" path="res://BuildingStructures/wallbrickweak.tscn" id="10_jdrqy"]
 [ext_resource type="PackedScene" uid="uid://4qiokta6onj0" path="res://BuildingStructures/door.tscn" id="10_kv84y"]
+[ext_resource type="PackedScene" uid="uid://drspj3erxn4j" path="res://Enemies/bigturretenemy.tscn" id="11_cqy42"]
 [ext_resource type="PackedScene" uid="uid://c60wv80jngrs7" path="res://BuildingStructures/brazier.tscn" id="11_wpihg"]
 [ext_resource type="PackedScene" uid="uid://cigaenad2fkna" path="res://BuildingStructures/wallbrickinsignia.tscn" id="13_pe8k8"]
 
@@ -801,13 +802,10 @@ target = NodePath("../Adventurer")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -3)
 target = NodePath("../Adventurer")
 
-[node name="TurretEnemy" parent="." node_paths=PackedStringArray("target_body") instance=ExtResource("6_g5r8n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -21)
-target_body = NodePath("../Adventurer")
-
 [node name="TurretEnemy2" parent="." node_paths=PackedStringArray("target_body") instance=ExtResource("6_g5r8n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -24)
 target_body = NodePath("../Adventurer")
+projectile_type = "bolt"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vot6c")
@@ -828,3 +826,9 @@ autoplay = true
 
 [node name="Wall" parent="." instance=ExtResource("10_kv84y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -8)
+
+[node name="TurretEnemy" parent="." node_paths=PackedStringArray("target_body") instance=ExtResource("11_cqy42")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -21)
+target_body = NodePath("../Adventurer")
+range = 5
+projectile_type = "fireball"
