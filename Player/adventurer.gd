@@ -23,7 +23,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	#use this input triggering for footsteps
+	
 	print(self.objs_in_front, self.objs_behind, self.objs_left, self.objs_right)
 	#Still possible to glitch player between walls
 	if Input.is_action_just_pressed("turn_left"):
@@ -83,10 +83,10 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_accept") and self.mana > 0: #still a little weird
 		#fire projectile
 		if self.projectile_type == 'lightning':
-#			$LightningSound.play()
+			$LightningSound.play()
 			pass
 		else:
-#			$FireblastSound.play()
+			$FireblastSound.play()
 			pass
 		var shot = preload("res://Attacks/shot.tscn").instantiate()
 		shot.position = self.position
@@ -96,6 +96,9 @@ func _process(delta):
 		shot.shot_type = 'multishot'
 		get_tree().root.add_child(shot)
 		self.mana -= 1 #need to balance
+	if Input.is_action_just_pressed("ui_cancel"):
+		if self.objs_in_front.has_method('interact'):
+			self.objs_in_front.interact()
 
 func attacked(direction):
 	self.health -= 1

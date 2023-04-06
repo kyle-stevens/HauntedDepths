@@ -14,14 +14,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	sprite.look_at(self.target_body.position, Vector3.UP)
+	
+	$GrindingStone.play()
 	self.rotation.y = $Sprite3D.global_rotation.y
 
 func attacked(direction):
 	queue_free()
 	pass
-		
-
-
 
 func _on_timer_timeout():
 	#fire projectile
@@ -35,3 +34,4 @@ func _on_timer_timeout():
 		shot.shot_type = 'fireball'
 		shot.rotation = self.rotation
 		get_tree().root.add_child(shot)
+		$FireblastSound.play()

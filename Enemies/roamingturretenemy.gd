@@ -108,5 +108,6 @@ func _on_timer_timeout():
 		shot.rotation = self.rotation
 		shot.shot_type = 'fireball'
 		get_tree().root.add_child(shot)
+		$FireblastSound.play()
 	else:
 		enemyMovement()

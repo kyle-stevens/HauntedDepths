@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://p2sxsmw1i6on"]
+[gd_scene load_steps=9 format=3 uid="uid://p2sxsmw1i6on"]
 
 [ext_resource type="Script" path="res://Player/adventurer.gd" id="1_mimyd"]
 [ext_resource type="Texture2D" uid="uid://dlxfrs8aeaywv" path="res://Assets/UI/Exports/CompassFace.png" id="2_uswkl"]
 [ext_resource type="Texture2D" uid="uid://dhqrufjaiylrl" path="res://Assets/UI/Exports/CompassShell.png" id="3_nubrh"]
+[ext_resource type="AudioStream" uid="uid://dr5l3qh0yqu23" path="res://Assets/Sounds/186932__readeonly__fire_explosion-[AudioTrimmer.com].wav" id="4_fvxio"]
 [ext_resource type="AudioStream" uid="uid://b62hcu3jl2tqb" path="res://Assets/Sounds/459964__florianreichelt__footsteps-on-concrete.mp3" id="4_yssls"]
+[ext_resource type="AudioStream" uid="uid://ywftcm01fiec" path="res://Assets/Sounds/495525__dominikbraun__lightning-thunderbolt.wav" id="5_dcefc"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2uyeb"]
 
@@ -62,10 +64,11 @@ scale = Vector2(3, 3)
 texture = ExtResource("3_nubrh")
 
 [node name="FireblastSound" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("4_yssls")
+stream = ExtResource("4_fvxio")
+max_distance = 3.0
 
 [node name="LightningSound" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("4_yssls")
+stream = ExtResource("5_dcefc")
 
 [node name="FootstepsSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_yssls")

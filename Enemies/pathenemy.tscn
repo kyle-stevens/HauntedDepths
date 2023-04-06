@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpxdsrao4taqk"]
+[gd_scene load_steps=7 format=3 uid="uid://cpxdsrao4taqk"]
 
 [ext_resource type="Script" path="res://Enemies/pathenemy.gd" id="1_f5iv0"]
-[ext_resource type="Texture2D" uid="uid://bxe158jnkov8p" path="res://icon.svg" id="2_61vj4"]
+[ext_resource type="Texture2D" uid="uid://djeatmq6jf4h0" path="res://Assets/Enemies/Exports/RollingShell.png" id="2_mwvrb"]
+[ext_resource type="AudioStream" uid="uid://cytdx44xkab3b" path="res://Assets/Sounds/loop_182345__claireh__stone_mechanisem_loop_01.wav" id="3_3caia"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_tqd48"]
 
@@ -12,7 +13,7 @@ radius = 0.253209
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_61vj4")
+"texture": ExtResource("2_mwvrb")
 }],
 "loop": true,
 "name": &"default",
@@ -40,8 +41,14 @@ height = 0.75
 shape = SubResource("SphereShape3D_20r8k")
 
 [node name="Sprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.092, 0, 0, 0, 0.092, 0, 0, 0, 0.092, 0, 0, 0)
 shaded = true
 sprite_frames = SubResource("SpriteFrames_4sqj0")
+
+[node name="GrindingStone" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_3caia")
+autoplay = true
+max_distance = 5.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

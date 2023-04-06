@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://sivj0rebt6ll"]
+[gd_scene load_steps=12 format=3 uid="uid://sivj0rebt6ll"]
 
 [ext_resource type="PackedScene" uid="uid://p2sxsmw1i6on" path="res://Player/adventurer.tscn" id="1_b5lit"]
 [ext_resource type="PackedScene" uid="uid://867i377lee0s" path="res://Enemies/turretenemy.tscn" id="6_g5r8n"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://1runvlb88tso" path="res://Assets/Sounds/362670__osiruswaltz__creepy-background-noise-1-loopable.wav" id="8_h2r68"]
 [ext_resource type="AudioStream" uid="uid://cd8f1busnegs4" path="res://Assets/Sounds/657652__matrixxx__ghastly-strange-sounds.wav" id="9_2x7b0"]
 [ext_resource type="PackedScene" uid="uid://cdlwd8lpohke6" path="res://BuildingStructures/wallbrickweak.tscn" id="10_jdrqy"]
+[ext_resource type="PackedScene" uid="uid://4qiokta6onj0" path="res://BuildingStructures/door.tscn" id="10_kv84y"]
 [ext_resource type="PackedScene" uid="uid://c60wv80jngrs7" path="res://BuildingStructures/brazier.tscn" id="11_wpihg"]
 [ext_resource type="PackedScene" uid="uid://cigaenad2fkna" path="res://BuildingStructures/wallbrickinsignia.tscn" id="13_pe8k8"]
 
@@ -824,3 +825,6 @@ autoplay = true
 [node name="AmbienceSound3" type="AudioStreamPlayer" parent="Ambience"]
 stream = ExtResource("9_2x7b0")
 autoplay = true
+
+[node name="Wall" parent="." instance=ExtResource("10_kv84y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -8)
