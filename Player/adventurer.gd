@@ -14,6 +14,7 @@ var objs_right : Node3D = self.null_node
 var health : int = 100
 var potions : int = 5
 var mana : int = 100
+var projectile_type : String = 'bolt'
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,10 +22,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if self.is_rotating:
-		$AudioStreamPlayer3D.playing = true
-	else:
-		$AudioStreamPlayer3D.playing = false
+	
+	#use this input triggering for footsteps
 	print(self.objs_in_front, self.objs_behind, self.objs_left, self.objs_right)
 	#Still possible to glitch player between walls
 	if Input.is_action_just_pressed("turn_left"):
@@ -83,6 +82,12 @@ func _process(delta):
 		
 	if Input.is_action_just_pressed("ui_accept") and self.mana > 0: #still a little weird
 		#fire projectile
+		if self.projectile_type == 'lightning':
+#			$LightningSound.play()
+			pass
+		else:
+#			$FireblastSound.play()
+			pass
 		var shot = preload("res://Attacks/shot.tscn").instantiate()
 		shot.position = self.position
 		shot.rotation = self.rotation

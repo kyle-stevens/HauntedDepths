@@ -61,7 +61,13 @@ position = Vector2(100, 100)
 scale = Vector2(3, 3)
 texture = ExtResource("3_nubrh")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="FireblastSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_yssls")
+
+[node name="LightningSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_yssls")
+
+[node name="FootstepsSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_yssls")
 
 [connection signal="body_entered" from="PlayerFrontInteraction" to="." method="_on_player_front_interaction_body_entered"]

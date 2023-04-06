@@ -44,4 +44,6 @@ light_energy = 0.125
 omni_range = 0.75
 omni_attenuation = 0.25
 
+[node name="ExplosionSound" type="AudioStreamPlayer3D" parent="."]
+
 [connection signal="body_entered" from="Damage" to="." method="_on_damage_body_entered"]

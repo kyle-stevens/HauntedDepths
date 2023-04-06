@@ -1,11 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://sivj0rebt6ll"]
+[gd_scene load_steps=11 format=3 uid="uid://sivj0rebt6ll"]
 
 [ext_resource type="PackedScene" uid="uid://p2sxsmw1i6on" path="res://Player/adventurer.tscn" id="1_b5lit"]
 [ext_resource type="PackedScene" uid="uid://867i377lee0s" path="res://Enemies/turretenemy.tscn" id="6_g5r8n"]
 [ext_resource type="PackedScene" uid="uid://b7tu8wdpa3llb" path="res://BuildingStructures/wallbrick.tscn" id="7_m4rv2"]
+[ext_resource type="AudioStream" uid="uid://bqlfchmr6g67p" path="res://Assets/Sounds/171992__bradovic__eerie-ambience.mp3" id="7_tj88r"]
+[ext_resource type="AudioStream" uid="uid://1runvlb88tso" path="res://Assets/Sounds/362670__osiruswaltz__creepy-background-noise-1-loopable.wav" id="8_h2r68"]
+[ext_resource type="AudioStream" uid="uid://cd8f1busnegs4" path="res://Assets/Sounds/657652__matrixxx__ghastly-strange-sounds.wav" id="9_2x7b0"]
 [ext_resource type="PackedScene" uid="uid://cdlwd8lpohke6" path="res://BuildingStructures/wallbrickweak.tscn" id="10_jdrqy"]
 [ext_resource type="PackedScene" uid="uid://c60wv80jngrs7" path="res://BuildingStructures/brazier.tscn" id="11_wpihg"]
 [ext_resource type="PackedScene" uid="uid://cigaenad2fkna" path="res://BuildingStructures/wallbrickinsignia.tscn" id="13_pe8k8"]
+
+[sub_resource type="Environment" id="Environment_vot6c"]
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.15
+volumetric_fog_emission = Color(0.490196, 0.490196, 0.490196, 1)
+volumetric_fog_detail_spread = 6.0
 
 [node name="demomap" type="Node3D"]
 
@@ -798,3 +807,20 @@ target_body = NodePath("../Adventurer")
 [node name="TurretEnemy2" parent="." node_paths=PackedStringArray("target_body") instance=ExtResource("6_g5r8n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -24)
 target_body = NodePath("../Adventurer")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vot6c")
+
+[node name="Ambience" type="Node" parent="."]
+
+[node name="AmbienceSound1" type="AudioStreamPlayer" parent="Ambience"]
+stream = ExtResource("7_tj88r")
+autoplay = true
+
+[node name="AmbienceSound2" type="AudioStreamPlayer" parent="Ambience"]
+stream = ExtResource("8_h2r68")
+autoplay = true
+
+[node name="AmbienceSound3" type="AudioStreamPlayer" parent="Ambience"]
+stream = ExtResource("9_2x7b0")
+autoplay = true

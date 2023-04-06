@@ -3,7 +3,7 @@ extends CPUParticles3D
 var shooter : Node3D
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$ExplosionSound.play()
 	print("explosion")
 
 
