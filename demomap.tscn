@@ -19,7 +19,7 @@ volumetric_fog_detail_spread = 6.0
 [node name="demomap" type="Node3D"]
 
 [node name="Adventurer" parent="." instance=ExtResource("1_b5lit")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Floor" type="Node3D" parent="."]
 
