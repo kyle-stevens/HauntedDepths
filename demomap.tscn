@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://sivj0rebt6ll"]
+[gd_scene load_steps=18 format=3 uid="uid://sivj0rebt6ll"]
 
 [ext_resource type="PackedScene" uid="uid://p2sxsmw1i6on" path="res://Player/adventurer.tscn" id="1_b5lit"]
 [ext_resource type="PackedScene" uid="uid://867i377lee0s" path="res://Enemies/turretenemy.tscn" id="6_g5r8n"]
@@ -11,7 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://drspj3erxn4j" path="res://Enemies/bigturretenemy.tscn" id="11_cqy42"]
 [ext_resource type="PackedScene" uid="uid://c60wv80jngrs7" path="res://BuildingStructures/brazier.tscn" id="11_wpihg"]
 [ext_resource type="PackedScene" uid="uid://bndf1ie3i0pgm" path="res://BuildingStructures/chest.tscn" id="12_x5cbt"]
+[ext_resource type="PackedScene" uid="uid://yr1xu111wyib" path="res://BuildingStructures/level_orb.tscn" id="13_hlng7"]
 [ext_resource type="PackedScene" uid="uid://cigaenad2fkna" path="res://BuildingStructures/wallbrickinsignia.tscn" id="13_pe8k8"]
+[ext_resource type="PackedScene" uid="uid://cpxdsrao4taqk" path="res://Enemies/pathenemy.tscn" id="14_vth2t"]
+[ext_resource type="PackedScene" uid="uid://dt3rg88idu20j" path="res://BuildingStructures/gate.tscn" id="15_01m6t"]
+[ext_resource type="PackedScene" uid="uid://dfu4q4rstuq77" path="res://BuildingStructures/outsidewallcobblestone_cheat.tscn" id="16_7kl1a"]
 
 [sub_resource type="Environment" id="Environment_vot6c"]
 volumetric_fog_enabled = true
@@ -570,6 +574,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, -2)
 [node name="WallBrick166" parent="Walls" instance=ExtResource("7_m4rv2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -1)
 
+[node name="WallBrick172" parent="Walls" instance=ExtResource("7_m4rv2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
 [node name="WallBrick167" parent="Walls" instance=ExtResource("7_m4rv2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, -1)
 
@@ -711,20 +718,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
 [node name="WallBrick131" parent="Walls" instance=ExtResource("7_m4rv2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 0)
 
-[node name="WallBrick132" parent="Walls" instance=ExtResource("7_m4rv2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 1)
-
 [node name="WallBrick133" parent="Walls" instance=ExtResource("7_m4rv2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 1)
 
 [node name="WallBrick134" parent="Walls" instance=ExtResource("7_m4rv2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 1)
-
-[node name="WallBrick135" parent="Walls" instance=ExtResource("7_m4rv2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
-
-[node name="WallBrick136" parent="Walls" instance=ExtResource("7_m4rv2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1)
 
 [node name="WallBrick82" parent="Walls" instance=ExtResource("7_m4rv2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1, -26)
@@ -835,5 +833,102 @@ range = 5
 projectile_type = "fireball"
 
 [node name="Chest" parent="." node_paths=PackedStringArray("target") instance=ExtResource("12_x5cbt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -1)
 target = NodePath("../Adventurer")
+
+[node name="LevelOrb" parent="." node_paths=PackedStringArray("target") instance=ExtResource("13_hlng7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -4)
+target = NodePath("../Adventurer")
+
+[node name="PathEnemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("14_vth2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -2)
+target = Vector3(1, 1, -2)
+start = Vector3(-1, 1, -2)
+player = NodePath("../Adventurer")
+
+[node name="Wall2" parent="." instance=ExtResource("15_01m6t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
+
+[node name="WallBrickWeak" parent="." instance=ExtResource("10_jdrqy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1)
+
+[node name="WallCobblstone" parent="." instance=ExtResource("16_7kl1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 2)
+
+[node name="WallCobblstone2" parent="." instance=ExtResource("16_7kl1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="WallCobblstone3" parent="." instance=ExtResource("16_7kl1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="WallCobblstone4" parent="." instance=ExtResource("16_7kl1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="WallCobblstone26" parent="." instance=ExtResource("16_7kl1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1)
+
+[node name="WallCobblstone27" parent="." instance=ExtResource("16_7kl1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="WallCobblstone5" parent="." instance=ExtResource("16_7kl1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+
+[node name="WallCobblstone6" parent="." instance=ExtResource("16_7kl1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 3)
+
+[node name="WallCobblstone7" parent="." instance=ExtResource("16_7kl1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="WallCobblstone8" parent="." instance=ExtResource("16_7kl1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3)
+
+[node name="WallCobblstone9" parent="." instance=ExtResource("16_7kl1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+
+[node name="WallCobblstone10" parent="." instance=ExtResource("16_7kl1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 3)
+
+[node name="WallCobblstone11" parent="." instance=ExtResource("16_7kl1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 4)
+
+[node name="WallCobblstone12" parent="." instance=ExtResource("16_7kl1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="WallCobblstone13" parent="." instance=ExtResource("16_7kl1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+
+[node name="WallCobblstone14" parent="." instance=ExtResource("16_7kl1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="WallCobblstone15" parent="." instance=ExtResource("16_7kl1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4)
+
+[node name="WallCobblstone16" parent="." instance=ExtResource("16_7kl1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 5)
+
+[node name="WallCobblstone17" parent="." instance=ExtResource("16_7kl1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="WallCobblstone18" parent="." instance=ExtResource("16_7kl1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 5)
+
+[node name="WallCobblstone19" parent="." instance=ExtResource("16_7kl1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 5)
+
+[node name="WallCobblstone20" parent="." instance=ExtResource("16_7kl1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 5)
+
+[node name="WallCobblstone21" parent="." instance=ExtResource("16_7kl1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 6)
+
+[node name="WallCobblstone22" parent="." instance=ExtResource("16_7kl1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="WallCobblstone23" parent="." instance=ExtResource("16_7kl1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 6)
+
+[node name="WallCobblstone24" parent="." instance=ExtResource("16_7kl1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 6)
+
+[node name="WallCobblstone25" parent="." instance=ExtResource("16_7kl1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 6)

@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://sy4n1vgopvcg"]
+
+[ext_resource type="Texture2D" uid="uid://do1inkrgm8a0u" path="res://Assets/Structural/Exports/ManaOrb.png" id="1_ai3lc"]
+[ext_resource type="Texture2D" uid="uid://ditwov23my80m" path="res://Assets/Structural/Exports/ManaOrb_n.png" id="2_yev6l"]
+
+[resource]
+transparency = 1
+albedo_texture = ExtResource("1_ai3lc")
+normal_enabled = true
+normal_texture = ExtResource("2_yev6l")

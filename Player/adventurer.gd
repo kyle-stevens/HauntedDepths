@@ -11,11 +11,14 @@ var objs_behind : Node3D = self.null_node
 var objs_left : Node3D = self.null_node
 var objs_right : Node3D = self.null_node
 
+var max_health : int = 100
 var health : int = 100
 var potions : int = 5
 var mana : int = 100
 var projectile_type : String = 'bolt'
 var power_level : int = 0
+
+var escaped : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,11 +27,29 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
+	if self.escaped:
+		$UI/FloatingText.text = "You've managed to escape the crypt. Never again will you have to explore these haunted depths."
+	
+	self.max_health = 100 - self.power_level * 15
+	
+	
+	if self.health > self.max_health:
+		self.health = self.max_health
+	
+	if self.power_level == 1:
+		self.projectile_type = 'multishot'
+	elif self.power_level == 2:
+		self.projectile_type == 'exploding_bolt'
+	elif self.power_level == 3:
+		self.projectile_type == 'fireball'
+	elif self.power_level == 4:
+		self.projectile_type == 'lightning'
+	
 	$UI/StatBars/Health.text = str(self.health)
 	$UI/StatBars/Mana.text = str(self.mana)
 	$UI/StatBars/DamageMult.text = str(self.power_level)
 	
-	print(self.objs_in_front, self.objs_behind, self.objs_left, self.objs_right)
+#	print(self.objs_in_front, self.objs_behind, self.objs_left, self.objs_right)
 	#Still possible to glitch player between walls
 	if Input.is_action_just_pressed("turn_left"):
 		direction_facing += 1 # left turn
@@ -84,7 +105,7 @@ func _process(delta):
 #		if self.objs_in_front.has_method("interact"):
 #			self.objs_in_front.interact(self)
 		
-	if Input.is_action_just_pressed("ui_accept") and self.mana > 0: #still a little weird
+	if Input.is_action_just_pressed("attack") and self.mana > 0: #still a little weird
 		#fire projectile
 		if self.projectile_type == 'lightning':
 			$LightningSound.play()
@@ -97,29 +118,27 @@ func _process(delta):
 		shot.rotation = self.rotation
 		shot.shooter = self
 		shot.shooter_position = self.position
-		shot.shot_type = 'multishot'
+		shot.shot_type = self.projectile_type
 		get_tree().root.add_child(shot)
-		self.mana -= 1 #need to balance
-	if Input.is_action_just_pressed("ui_cancel"):
+		self.mana -= 5 + 5 * self.power_level
+	if Input.is_action_just_pressed("interact"):
 		if self.objs_in_front.has_method('interact'):
 			self.objs_in_front.interact(self)
-	if Input.is_action_just_pressed("ui_left"):
-		pass
-	if Input.is_action_just_pressed("ui_right"):
-		pass
 
 func attacked(damage):
-	self.health -= damage
+	print(damage)
+	self.health = self.health - damage
+	print(self.health)
 
 func _on_player_front_interaction_body_entered(body):
 	self.objs_in_front = body
-#	if body.has_method("interact"):
-#		$UserInterface/popup.text = body.interact_mesg
+	if body.has_method("interact"):
+		$UI/FloatingText.text = body.interact_mesg
 
 func _on_player_front_interaction_body_exited(body):
 	if body == self.objs_in_front:
 		self.objs_in_front = self.null_node
-#		$UserInterface/popup.text = ""
+		$UI/FloatingText.text = ''
 
 func _on_player_back_interaction_body_entered(body):
 	self.objs_behind = body
@@ -144,3 +163,8 @@ func _on_player_right_interaction_body_exited(body):
 
 
 
+
+
+func _on_timer_timeout():
+	if self.mana < 100:
+		self.mana += 1

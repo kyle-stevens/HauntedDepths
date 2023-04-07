@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do1inkrgm8a0u"
-path.s3tc="res://.godot/imported/ManaOrb.png-c3de2c25b96ab616aaec062729b5d8d0.s3tc.ctex"
+uid="uid://chkr3gp27trv6"
+path.s3tc="res://.godot/imported/Gate.png-3db3b9c14f45f1c702d6771dffb26b35.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Structural/Exports/ManaOrb.png"
-dest_files=["res://.godot/imported/ManaOrb.png-c3de2c25b96ab616aaec062729b5d8d0.s3tc.ctex"]
+source_file="res://Assets/Structural/Exports/Gate.png"
+dest_files=["res://.godot/imported/Gate.png-3db3b9c14f45f1c702d6771dffb26b35.s3tc.ctex"]
 
 [params]
 

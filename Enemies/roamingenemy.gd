@@ -16,8 +16,11 @@ var west  = null_node
 
 var target : Vector3
 @export var target_body : PhysicsBody3D
+@export var health : int = 5
 @export var range : int = 10
 @onready var sprite : AnimatedSprite3D = get_node("Sprite3D")
+@export var damage : int = 10
+@export var power_level : int = 1
 var timer = Timer.new()
 
 # Called when the node enters the scene tree for the first time.
@@ -37,7 +40,7 @@ func enemyMovement():
 		#check attack first
 		if self.north == self.target_body or self.south == self.target_body or self.east == self.target_body or self.west == self.target_body:
 			if self.target_body.has_method("attacked"):
-				self.target_body.attacked("head")
+				self.target_body.attacked(damage * power_level)
 				sprite.play("attack")
 		else:
 			if self.north == null_node:
@@ -70,8 +73,10 @@ func enemyMovement():
 func _process(delta):
 	sprite.look_at(target_body.position, Vector3.UP)
 	pass
+	if self.health <= 0:
+		queue_free()
 func attacked(direction):
-	sprite.play("death")
+	self.health -= direction
 	queue_free()
 
 func _on_north_interaction_body_entered(body):

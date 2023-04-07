@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://yr1xu111wyib"]
+
+[ext_resource type="Script" path="res://BuildingStructures/level_orb.gd" id="1_c3ges"]
+[ext_resource type="Material" uid="uid://sy4n1vgopvcg" path="res://Assets/Structural/levelorb.tres" id="2_f22y2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5rkhl"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1jdk4"]
+size = Vector2(1, 1)
+
+[node name="LevelOrb" type="StaticBody3D"]
+script = ExtResource("1_c3ges")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_5rkhl")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="X3" type="CSGMesh3D" parent="Node3D"]
+transform = Transform3D(-0.75, 1.13247e-07, -4.95018e-15, 0, -3.27835e-08, -0.75, -1.13247e-07, -0.75, 3.27835e-08, 0, -0.125, 0)
+mesh = SubResource("PlaneMesh_1jdk4")
+material = ExtResource("2_f22y2")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Node3D/X3"]
+transform = Transform3D(-1, -2.5411e-21, -8.74228e-08, 8.74228e-08, -4.37114e-08, -1, -3.82137e-15, -1, 4.37114e-08, 1.3867e-08, 0.15862, -0.323556)
+
+[node name="X4" type="CSGMesh3D" parent="Node3D"]
+transform = Transform3D(0.75, 0, 0, 0, -3.27835e-08, -0.75, 0, 0.75, -3.27835e-08, 0, -0.125, 0)
+mesh = SubResource("PlaneMesh_1jdk4")
+material = ExtResource("2_f22y2")
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Node3D/X4"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.136143, -0.323556)

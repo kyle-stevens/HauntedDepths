@@ -9,6 +9,7 @@ var pass_through : int = 1
 var damage : int = 1
 var explodes : bool = false
 var explosion_scale : int = 1
+@export var power_level : int = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if self.shot_type == "bolt":
@@ -27,9 +28,9 @@ func _ready():
 		#explosion
 	elif self.shot_type == "fireball":
 		self.pass_through = 1
-		self.damage = 1
+		self.damage = 3
 		self.explodes = true
-		self.explosion_scale = 5
+		self.explosion_scale = 2
 		$Fireball.visible = true
 		#more damage larger explosion
 	elif self.shot_type == "multishot":
@@ -41,17 +42,18 @@ func _ready():
 		#fan shot
 	elif self.shot_type == "lightning":
 		self.pass_through = 3
-		self.damage = 1
-		self.explodes = false
+		self.damage = 5
+		self.explodes = true
 		self.explosion_scale = 1
+		$Lightning.visible = true
 		#pass through
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 #	raycast.add_exception(body_to_ignore)
-	print(self.position)
+#	print(self.position)
 	self.position += self.basis.z * (-0.1 * speed_multiplier)
-	print(self.position)
-	print(self.basis.z * (-0.1 * speed_multiplier))
+#	print(self.position)
+#	print(self.basis.z * (-0.1 * speed_multiplier))
 	
 
 #going to add multiple types of projectile here.
@@ -61,8 +63,7 @@ func _on_body_entered(body):
 		if self.pass_through <= 0:
 			queue_free()
 		if body.has_method('attacked'):
-			for i in range(0, self.damage):
-				body.attacked(0)
+			body.attacked(damage * power_level)
 		if self.explodes:
 			var explosion = preload("res://Attacks/explosion.tscn").instantiate()
 			explosion.scale = explosion.scale * self.explosion_scale

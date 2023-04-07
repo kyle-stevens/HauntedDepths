@@ -2,8 +2,6 @@ extends StaticBody3D
 
 
 # Called when the node enters the scene tree for the first time.
-var interact_mesg : String = "An Old Stone Door." + \
-"\nPress [Enter] to open the door."
 func _ready():
 	pass # Replace with function body.
 
@@ -11,9 +9,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func _on_area_3d_body_entered(body):
+	if body.has_method('_on_player_right_interaction_body_exited'):
+		body.escaped = true
 	
-func interact(body):
-	pass
-	queue_free()
-	print('open')
-	#fade away

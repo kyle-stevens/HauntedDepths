@@ -6,6 +6,9 @@ extends RigidBody3D
 
 @onready var sprite : AnimatedSprite3D = get_node("Sprite3D")
 @export var player : Node3D
+@export var damage : int = 5
+@export var power_level : int = 1
+@export var health : int = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,6 +17,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if self.health <= 0:
+		queue_free()
 	sprite.look_at(player.position, Vector3.UP)
 	
 	#print(self.position)
@@ -26,8 +31,9 @@ func _process(delta):
 		self.start = self.position
 
 func attacked(direction):
-	queue_free()
+	self.health -= direction
 
 func _on_area_3d_body_entered(body):
-	print("hello")
+	if body.has_method('attacked'):
+		body.attacked(damage * power_level)
 	

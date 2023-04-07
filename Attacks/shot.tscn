@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://oiovk5y3j3yc"]
+[gd_scene load_steps=7 format=3 uid="uid://oiovk5y3j3yc"]
 
 [ext_resource type="Script" path="res://Attacks/shot.gd" id="1_gtunb"]
 [ext_resource type="Material" uid="uid://dnyya02cnw0g5" path="res://Assets/Attacks/bolt.tres" id="2_7jb1m"]
+[ext_resource type="Material" uid="uid://dnqd5xclbqu3" path="res://Assets/Attacks/lightning.tres" id="3_hxyv7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0ncn8"]
 radius = 0.25
@@ -11,9 +12,9 @@ material = ExtResource("2_7jb1m")
 size = Vector3(0.025, 0.025, 0.025)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ptmxm"]
-material = ExtResource("2_7jb1m")
-radius = 0.025
-height = 0.05
+material = ExtResource("3_hxyv7")
+radius = 0.0035
+height = 0.007
 
 [node name="Shot" type="Area3D"]
 collision_mask = 15
@@ -118,6 +119,28 @@ material = ExtResource("2_7jb1m")
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Fireball"]
 light_color = Color(1, 0.560784, 0.101961, 1)
+light_energy = 4.0
+
+[node name="Lightning" type="Node3D" parent="."]
+visible = false
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="Lightning"]
+amount = 25
+lifetime = 0.5
+mesh = SubResource("CapsuleMesh_ptmxm")
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 1.0
+angular_velocity_max = 5.0
+linear_accel_max = 5.0
+radial_accel_max = 5.0
+tangential_accel_max = 5.0
+damping_min = 5.0
+damping_max = 10.0
+scale_amount_max = 5.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lightning"]
 light_energy = 4.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

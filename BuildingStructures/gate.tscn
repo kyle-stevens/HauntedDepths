@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://dt3rg88idu20j"]
+
+[ext_resource type="Material" uid="uid://b5hqwu65yuago" path="res://Assets/Structural/gate.tres" id="1_hg3ml"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5rkhl"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sq7li"]
+size = Vector2(1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_r6s8b"]
+size = Vector2(1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_stw2s"]
+size = Vector2(1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_k5um2"]
+size = Vector2(1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1jdk4"]
+size = Vector2(1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_r41w4"]
+size = Vector2(1, 1)
+
+[node name="Gate" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_5rkhl")
+
+[node name="Y" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("PlaneMesh_sq7li")
+material = ExtResource("1_hg3ml")
+
+[node name="neg_Y" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, -0.5, 0)
+mesh = SubResource("PlaneMesh_r6s8b")
+material = ExtResource("1_hg3ml")
+
+[node name="neg_Z" type="CSGMesh3D" parent="."]
+transform = Transform3D(-1, 1.04251e-15, 8.74228e-08, -8.74228e-08, -1.19249e-08, -1, 0, -1, 1.19249e-08, 0, 0, -0.5)
+mesh = SubResource("PlaneMesh_stw2s")
+material = ExtResource("1_hg3ml")
+
+[node name="Z" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.5)
+mesh = SubResource("PlaneMesh_k5um2")
+material = ExtResource("1_hg3ml")
+
+[node name="X" type="CSGMesh3D" parent="."]
+transform = Transform3D(1.19249e-08, 1, 0, 4.37114e-08, -5.21254e-16, -1, -1, 1.19249e-08, -4.37114e-08, 0.5, 0, 0)
+mesh = SubResource("PlaneMesh_1jdk4")
+material = ExtResource("1_hg3ml")
+
+[node name="neg_X" type="CSGMesh3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -0.5, 0, 0)
+mesh = SubResource("PlaneMesh_r41w4")
+material = ExtResource("1_hg3ml")

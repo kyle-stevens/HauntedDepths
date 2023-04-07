@@ -19,6 +19,8 @@ var target : Vector3
 @onready var sprite : AnimatedSprite3D = get_node("Sprite3D")
 @export var shoot_range : int = 3
 @export var range : int = 10
+@export var power_level : int = 1
+@export var health : int = 5
 var timer = Timer.new()
 
 # Called when the node enters the scene tree for the first time.
@@ -68,11 +70,13 @@ func enemyMovement():
 			self.position = min_vector
 		
 func _process(delta):
+	if self.health <= 0:
+		queue_free()
 	sprite.look_at(target_body.position, Vector3.UP)
 	self.rotation.y = $Sprite3D.global_rotation.y
 	pass
 func attacked(direction):
-	sprite.play("death")
+	self.health -= direction
 	queue_free()
 
 func _on_north_interaction_body_entered(body):
@@ -109,6 +113,7 @@ func _on_timer_timeout():
 		shot.shooter_position = self.position
 		shot.rotation = self.rotation
 		shot.shot_type = 'fireball'
+		shot.power_level = self.power_level
 		get_tree().root.add_child(shot)
 		$FireblastSound.play()
 	else:
