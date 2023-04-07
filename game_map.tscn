@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bvwvoiq4r4c35"]
+[gd_scene load_steps=21 format=3 uid="uid://bvwvoiq4r4c35"]
 
 [ext_resource type="PackedScene" uid="uid://dfu4q4rstuq77" path="res://BuildingStructures/outsidewallcobblestone_cheat.tscn" id="1_3530h"]
 [ext_resource type="PackedScene" uid="uid://b7tu8wdpa3llb" path="res://BuildingStructures/wallbrick.tscn" id="2_pneid"]
@@ -10,8 +10,10 @@
 [ext_resource type="AudioStream" uid="uid://bqlfchmr6g67p" path="res://Assets/Sounds/171992__bradovic__eerie-ambience.mp3" id="8_ei4vp"]
 [ext_resource type="PackedScene" uid="uid://doeh7wj1olrkg" path="res://BuildingStructures/wallcobblestone.tscn" id="9_jhwr8"]
 [ext_resource type="AudioStream" uid="uid://1runvlb88tso" path="res://Assets/Sounds/362670__osiruswaltz__creepy-background-noise-1-loopable.wav" id="9_kwjgh"]
+[ext_resource type="PackedScene" uid="uid://bndf1ie3i0pgm" path="res://BuildingStructures/chest.tscn" id="10_f7bpq"]
 [ext_resource type="AudioStream" uid="uid://cd8f1busnegs4" path="res://Assets/Sounds/657652__matrixxx__ghastly-strange-sounds.wav" id="10_g170n"]
 [ext_resource type="PackedScene" uid="uid://cdlwd8lpohke6" path="res://BuildingStructures/wallbrickweak.tscn" id="11_kcne2"]
+[ext_resource type="PackedScene" uid="uid://cpxdsrao4taqk" path="res://Enemies/pathenemy.tscn" id="13_hud6n"]
 
 [sub_resource type="Gradient" id="Gradient_gyra1"]
 offsets = PackedFloat32Array(0.433333, 1)
@@ -1269,6 +1271,257 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -6, -16)
 [node name="WallCobblstone3" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -6, -14)
 
+[node name="WallCobblstone4" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -6, -15)
+
+[node name="WallCobblstone5" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -6, -16)
+
+[node name="WallCobblstone6" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -6, -14)
+
+[node name="WallCobblstone7" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -6, -15)
+
+[node name="WallCobblstone8" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -6, -16)
+
+[node name="WallCobblstone9" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -6, -14)
+
+[node name="WallCobblstone10" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -6, -15)
+
+[node name="WallCobblstone11" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -6, -16)
+
+[node name="WallCobblstone12" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -6, -14)
+
+[node name="WallCobblstone13" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -6, -15)
+
+[node name="WallCobblstone14" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -6, -16)
+
+[node name="WallCobblstone15" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -6, -14)
+
+[node name="WallCobblstone16" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -6, -15)
+
+[node name="WallCobblstone17" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -6, -16)
+
+[node name="WallCobblstone18" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -6, -14)
+
+[node name="WallCobblstone19" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, -6, -15)
+
+[node name="WallCobblstone20" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, -6, -16)
+
+[node name="WallCobblstone21" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, -6, -14)
+
+[node name="WallCobblstone22" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, -6, -15)
+
+[node name="WallCobblstone23" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, -6, -16)
+
+[node name="WallCobblstone24" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, -6, -14)
+
+[node name="WallCobblstone25" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, -6, -15)
+
+[node name="WallCobblstone26" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, -6, -16)
+
+[node name="WallCobblstone27" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, -6, -14)
+
+[node name="WallCobblstone28" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -6, -15)
+
+[node name="WallCobblstone29" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -6, -16)
+
+[node name="WallCobblstone31" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -5, -16)
+
+[node name="WallCobblstone32" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -5, -16)
+
+[node name="WallCobblstone33" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -5, -16)
+
+[node name="WallCobblstone34" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -5, -16)
+
+[node name="WallCobblstone35" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -5, -16)
+
+[node name="WallCobblstone36" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -5, -16)
+
+[node name="WallCobblstone37" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, -5, -16)
+
+[node name="WallCobblstone38" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, -5, -16)
+
+[node name="WallCobblstone39" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, -5, -16)
+
+[node name="WallCobblstone40" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -5, -16)
+
+[node name="WallCobblstone41" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -4, -16)
+
+[node name="WallCobblstone42" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -4, -16)
+
+[node name="WallCobblstone43" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -4, -16)
+
+[node name="WallCobblstone44" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -4, -16)
+
+[node name="WallCobblstone45" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -4, -17)
+
+[node name="WallCobblstone81" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -3, -16)
+
+[node name="WallCobblstone82" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -3, -14)
+
+[node name="WallCobblstone46" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -4, -16)
+
+[node name="WallCobblstone47" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, -4, -16)
+
+[node name="WallCobblstone48" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, -4, -16)
+
+[node name="WallCobblstone49" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, -4, -16)
+
+[node name="WallCobblstone50" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -4, -16)
+
+[node name="WallCobblstone51" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -4, -14)
+
+[node name="WallCobblstone52" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -4, -14)
+
+[node name="WallCobblstone53" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -4, -14)
+
+[node name="WallCobblstone54" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -4, -14)
+
+[node name="WallCobblstone55" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -4, -13)
+
+[node name="WallCobblstone56" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -4, -14)
+
+[node name="WallCobblstone57" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, -4, -14)
+
+[node name="WallCobblstone58" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, -4, -14)
+
+[node name="WallCobblstone59" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, -4, -14)
+
+[node name="WallCobblstone60" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -4, -14)
+
+[node name="WallCobblstone61" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -5, -14)
+
+[node name="WallCobblstone62" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -5, -14)
+
+[node name="WallCobblstone63" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -5, -14)
+
+[node name="WallCobblstone64" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -5, -14)
+
+[node name="WallCobblstone65" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -5, -14)
+
+[node name="WallCobblstone66" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -5, -14)
+
+[node name="WallCobblstone67" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, -5, -14)
+
+[node name="WallCobblstone68" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, -5, -14)
+
+[node name="WallCobblstone69" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, -5, -14)
+
+[node name="WallCobblstone70" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -5, -14)
+
+[node name="WallCobblstone71" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -3, -15)
+
+[node name="WallCobblstone72" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -3, -15)
+
+[node name="WallCobblstone73" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -3, -15)
+
+[node name="WallCobblstone74" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -3, -15)
+
+[node name="WallCobblstone75" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -3, -15)
+
+[node name="WallCobblstone76" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -3, -15)
+
+[node name="WallCobblstone77" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, -3, -15)
+
+[node name="WallCobblstone78" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, -3, -15)
+
+[node name="WallCobblstone79" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, -3, -15)
+
+[node name="WallCobblstone80" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -3, -15)
+
+[node name="WallCobblstone30" parent="Layer2/Floor" instance=ExtResource("9_jhwr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -6, -14)
+
+[node name="Items" type="Node3D" parent="Layer2"]
+
+[node name="Chest" parent="Layer2/Items" node_paths=PackedStringArray("target") instance=ExtResource("10_f7bpq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -5, -15)
+target = NodePath("../../../Adventurer")
+
+[node name="Enemies" type="Node3D" parent="Layer2"]
+
+[node name="PathEnemy" parent="Layer2/Enemies" node_paths=PackedStringArray("player") instance=ExtResource("13_hud6n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, -5, -15)
+target = Vector3(5, -5, -15)
+start = Vector3(13, -5, -15)
+player = NodePath("../../../Adventurer")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_nbt7c")
 
@@ -1285,3 +1538,11 @@ autoplay = true
 [node name="AmbienceSound3" type="AudioStreamPlayer" parent="Ambience"]
 stream = ExtResource("10_g170n")
 autoplay = true
+
+[node name="Brazier" parent="." node_paths=PackedStringArray("target") instance=ExtResource("6_nmdth")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -3, -14)
+target = NodePath("../Adventurer")
+
+[node name="Brazier2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("6_nmdth")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -3, -16)
+target = NodePath("../Adventurer")
