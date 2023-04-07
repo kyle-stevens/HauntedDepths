@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://p2sxsmw1i6on"]
+[gd_scene load_steps=11 format=3 uid="uid://p2sxsmw1i6on"]
 
 [ext_resource type="Script" path="res://Player/adventurer.gd" id="1_mimyd"]
+[ext_resource type="Texture2D" uid="uid://bexntu8w4nndo" path="res://Assets/UI/Exports/StatBars.png" id="2_pg71s"]
 [ext_resource type="Texture2D" uid="uid://dlxfrs8aeaywv" path="res://Assets/UI/Exports/CompassFace.png" id="2_uswkl"]
+[ext_resource type="FontFile" uid="uid://bkrmdjwvuv2tk" path="res://Assets/UI/FSO8BITR.TTF" id="3_f502o"]
 [ext_resource type="Texture2D" uid="uid://dhqrufjaiylrl" path="res://Assets/UI/Exports/CompassShell.png" id="3_nubrh"]
 [ext_resource type="AudioStream" uid="uid://dr5l3qh0yqu23" path="res://Assets/Sounds/186932__readeonly__fire_explosion-[AudioTrimmer.com].wav" id="4_fvxio"]
 [ext_resource type="AudioStream" uid="uid://b62hcu3jl2tqb" path="res://Assets/Sounds/459964__florianreichelt__footsteps-on-concrete.mp3" id="4_yssls"]
@@ -53,13 +55,46 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="StatBars" type="Sprite2D" parent="UI"]
+position = Vector2(419, 167)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_pg71s")
+
+[node name="Health" type="RichTextLabel" parent="UI/StatBars"]
+offset_left = -330.0
+offset_top = 32.0
+offset_right = 92.0
+offset_bottom = 439.0
+theme_override_fonts/normal_font = ExtResource("3_f502o")
+theme_override_font_sizes/normal_font_size = 150
+text = "100"
+
+[node name="Mana" type="RichTextLabel" parent="UI/StatBars"]
+offset_left = 7.49988
+offset_top = 230.0
+offset_right = 325.5
+offset_bottom = 488.0
+theme_override_fonts/normal_font = ExtResource("3_f502o")
+theme_override_font_sizes/normal_font_size = 100
+text = "100
+"
+
+[node name="DamageMult" type="RichTextLabel" parent="UI/StatBars"]
+offset_left = 157.5
+offset_top = -200.0
+offset_right = 550.5
+offset_bottom = 152.0
+theme_override_fonts/normal_font = ExtResource("3_f502o")
+theme_override_font_sizes/normal_font_size = 250
+text = "0"
+
 [node name="CompassFace" type="Sprite2D" parent="UI"]
-position = Vector2(100, 100)
+position = Vector2(150, 162)
 scale = Vector2(3, 3)
 texture = ExtResource("2_uswkl")
 
 [node name="CompassShell" type="Sprite2D" parent="UI"]
-position = Vector2(100, 100)
+position = Vector2(150, 162)
 scale = Vector2(3, 3)
 texture = ExtResource("3_nubrh")
 

@@ -62,7 +62,7 @@ func _on_body_entered(body):
 			queue_free()
 		if body.has_method('attacked'):
 			for i in range(0, self.damage):
-				body.attacked('shot')
+				body.attacked(0)
 		if self.explodes:
 			var explosion = preload("res://Attacks/explosion.tscn").instantiate()
 			explosion.scale = explosion.scale * self.explosion_scale

@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bkqmpbn3htp78"]
+
+[ext_resource type="Texture2D" uid="uid://b1loyw0bdag37" path="res://Assets/Structural/Exports/Chest.png" id="1_4ytns"]
+[ext_resource type="Texture2D" uid="uid://catwxwnki7nbe" path="res://Assets/Structural/Exports/Chest_n.png" id="2_25p8l"]
+
+[resource]
+transparency = 1
+albedo_texture = ExtResource("1_4ytns")
+normal_enabled = true
+normal_texture = ExtResource("2_25p8l")

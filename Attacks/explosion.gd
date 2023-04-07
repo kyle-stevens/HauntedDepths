@@ -15,4 +15,4 @@ func _process(delta):
 
 func _on_damage_body_entered(body):
 	if body.has_method("attacked") and body != self.shooter:
-		body.attacked("boom")
+		body.attacked(0)

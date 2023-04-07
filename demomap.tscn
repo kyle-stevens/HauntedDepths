@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://sivj0rebt6ll"]
+[gd_scene load_steps=14 format=3 uid="uid://sivj0rebt6ll"]
 
 [ext_resource type="PackedScene" uid="uid://p2sxsmw1i6on" path="res://Player/adventurer.tscn" id="1_b5lit"]
 [ext_resource type="PackedScene" uid="uid://867i377lee0s" path="res://Enemies/turretenemy.tscn" id="6_g5r8n"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://4qiokta6onj0" path="res://BuildingStructures/door.tscn" id="10_kv84y"]
 [ext_resource type="PackedScene" uid="uid://drspj3erxn4j" path="res://Enemies/bigturretenemy.tscn" id="11_cqy42"]
 [ext_resource type="PackedScene" uid="uid://c60wv80jngrs7" path="res://BuildingStructures/brazier.tscn" id="11_wpihg"]
+[ext_resource type="PackedScene" uid="uid://bndf1ie3i0pgm" path="res://BuildingStructures/chest.tscn" id="12_x5cbt"]
 [ext_resource type="PackedScene" uid="uid://cigaenad2fkna" path="res://BuildingStructures/wallbrickinsignia.tscn" id="13_pe8k8"]
 
 [sub_resource type="Environment" id="Environment_vot6c"]
@@ -832,3 +833,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -21)
 target_body = NodePath("../Adventurer")
 range = 5
 projectile_type = "fireball"
+
+[node name="Chest" parent="." node_paths=PackedStringArray("target") instance=ExtResource("12_x5cbt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -2)
+target = NodePath("../Adventurer")

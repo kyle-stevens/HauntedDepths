@@ -15,6 +15,7 @@ var health : int = 100
 var potions : int = 5
 var mana : int = 100
 var projectile_type : String = 'bolt'
+var power_level : int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,6 +24,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
+	$UI/StatBars/Health.text = str(self.health)
+	$UI/StatBars/Mana.text = str(self.mana)
+	$UI/StatBars/DamageMult.text = str(self.power_level)
 	
 	print(self.objs_in_front, self.objs_behind, self.objs_left, self.objs_right)
 	#Still possible to glitch player between walls
@@ -76,9 +80,9 @@ func _process(delta):
 	#-zero not equal to zero bug
 	var normalized_rotation_y = 2*PI + self.rotation.y if self.rotation.y < 0 else self.rotation.y
 		
-	if Input.is_action_just_pressed("interact"):
-		if self.objs_in_front.has_method("interact"):
-			self.objs_in_front.interact(self)
+#	if Input.is_action_just_pressed("interact"):
+#		if self.objs_in_front.has_method("interact"):
+#			self.objs_in_front.interact(self)
 		
 	if Input.is_action_just_pressed("ui_accept") and self.mana > 0: #still a little weird
 		#fire projectile
@@ -98,10 +102,14 @@ func _process(delta):
 		self.mana -= 1 #need to balance
 	if Input.is_action_just_pressed("ui_cancel"):
 		if self.objs_in_front.has_method('interact'):
-			self.objs_in_front.interact()
+			self.objs_in_front.interact(self)
+	if Input.is_action_just_pressed("ui_left"):
+		pass
+	if Input.is_action_just_pressed("ui_right"):
+		pass
 
-func attacked(direction):
-	self.health -= 1
+func attacked(damage):
+	self.health -= damage
 
 func _on_player_front_interaction_body_entered(body):
 	self.objs_in_front = body

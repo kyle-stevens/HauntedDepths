@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bndf1ie3i0pgm"]
+
+[ext_resource type="Script" path="res://BuildingStructures/chest.gd" id="1_ldug4"]
+[ext_resource type="Material" uid="uid://bkqmpbn3htp78" path="res://Assets/Structural/chest.tres" id="2_a0dx6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5rkhl"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1jdk4"]
+size = Vector2(1, 1)
+
+[node name="Chest" type="StaticBody3D"]
+script = ExtResource("1_ldug4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_5rkhl")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="X3" type="CSGMesh3D" parent="Node3D"]
+transform = Transform3D(-1, 8.74228e-08, -3.82137e-15, 0, -4.37114e-08, -1, -8.74228e-08, -1, 4.37114e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_1jdk4")
+material = ExtResource("2_a0dx6")
+
+[node name="X4" type="CSGMesh3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_1jdk4")
+material = ExtResource("2_a0dx6")
