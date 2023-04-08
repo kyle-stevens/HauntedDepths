@@ -12,4 +12,5 @@ func _process(delta):
 
 
 func _on_area_3d_body_entered(body):
-	body.escaped = true
+	if "escaped" in body:
+		body.escaped = true

@@ -29,6 +29,9 @@ func _process(delta):
 	
 	if self.escaped:
 		$UI/FloatingText.text = "You've managed to escape the crypt. Never again will you have to explore these haunted depths."
+		death()
+	if self.health <= 0 or self.position.y <= -25:
+		death()
 	
 	self.max_health = 100 - self.power_level * 15
 	
@@ -39,15 +42,18 @@ func _process(delta):
 	if self.power_level == 1:
 		self.projectile_type = 'multishot'
 	elif self.power_level == 2:
-		self.projectile_type == 'exploding_bolt'
+		self.projectile_type = 'exploding_bolt'
 	elif self.power_level == 3:
-		self.projectile_type == 'fireball'
+		self.projectile_type = 'fireball'
 	elif self.power_level == 4:
-		self.projectile_type == 'lightning'
+		self.projectile_type = 'lightning'
+	elif self.power_level == 5:
+		self.projectile_type = 'lightning'
 	
 	$UI/StatBars/Health.text = str(self.health)
 	$UI/StatBars/Mana.text = str(self.mana)
 	$UI/StatBars/DamageMult.text = str(self.power_level)
+	$UI/StatBars/Mana2.text = "c" + str(5+5*power_level)
 	
 #	print(self.objs_in_front, self.objs_behind, self.objs_left, self.objs_right)
 	#Still possible to glitch player between walls
@@ -105,7 +111,7 @@ func _process(delta):
 #		if self.objs_in_front.has_method("interact"):
 #			self.objs_in_front.interact(self)
 		
-	if Input.is_action_just_pressed("attack") and self.mana > 0: #still a little weird
+	if Input.is_action_just_pressed("attack") and self.mana > (5 + 5 * self.power_level): #still a little weird
 		#fire projectile
 		if self.projectile_type == 'lightning':
 			$LightningSound.play()
@@ -124,6 +130,8 @@ func _process(delta):
 	if Input.is_action_just_pressed("interact"):
 		if self.objs_in_front.has_method('interact'):
 			self.objs_in_front.interact(self)
+	if Input.is_action_just_pressed("ui_cancel"):
+		get_tree().change_scene_to_file("res://main_menu.tscn")
 
 func attacked(damage):
 	print(damage)
@@ -162,9 +170,17 @@ func _on_player_right_interaction_body_exited(body):
 		self.objs_right = self.null_node
 
 
-
+func death():
+	if not self.escaped:
+		$UI/FloatingText.text = 'You failed to escape the haunted depths...'
 
 
 func _on_timer_timeout():
 	if self.mana < 100:
 		self.mana += 1
+
+
+func _on_timer_2_timeout():
+	pass 
+	if self.escaped or self.health <= 0:
+		get_tree().change_scene_to_file("res://main_menu.tscn")

@@ -17,11 +17,11 @@ contact_monitor = true
 script = ExtResource("1_y6lmy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0)
 shape = SubResource("SphereShape3D_tqd48")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.092, 0, 0, 0, 0.092, 0, 0, 0, 0.092, 0, 0.5, 0)
+transform = Transform3D(0.184, 0, 0, 0, 0.184, 0, 0, 0, 0.184, 0, 1, 0)
 shaded = true
 texture = ExtResource("2_dh0l3")
 

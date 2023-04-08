@@ -79,6 +79,16 @@ theme_override_font_sizes/normal_font_size = 100
 text = "100
 "
 
+[node name="Mana2" type="RichTextLabel" parent="UI/StatBars"]
+offset_left = 305.0
+offset_top = 230.0
+offset_right = 623.0
+offset_bottom = 488.0
+theme_override_fonts/normal_font = ExtResource("3_f502o")
+theme_override_font_sizes/normal_font_size = 100
+text = "100
+"
+
 [node name="DamageMult" type="RichTextLabel" parent="UI/StatBars"]
 offset_left = 157.5
 offset_top = -200.0
@@ -124,7 +134,16 @@ max_db = 1.0
 stream = ExtResource("4_yssls")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
 autostart = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+light_color = Color(1, 1, 0, 1)
+light_energy = 0.5
 
 [connection signal="body_entered" from="PlayerFrontInteraction" to="." method="_on_player_front_interaction_body_entered"]
 [connection signal="body_exited" from="PlayerFrontInteraction" to="." method="_on_player_front_interaction_body_exited"]
@@ -135,3 +154,4 @@ autostart = true
 [connection signal="body_entered" from="PlayerRightInteraction" to="." method="_on_player_right_interaction_body_entered"]
 [connection signal="body_exited" from="PlayerRightInteraction" to="." method="_on_player_right_interaction_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
