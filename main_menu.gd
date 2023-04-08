@@ -16,4 +16,5 @@ func _on_start_game_button_pressed():
 
 
 func _on_exit_game_button_pressed():
-	queue_free()
+	get_tree().quit()
+	
